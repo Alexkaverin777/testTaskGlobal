@@ -1,0 +1,346 @@
+.header {
+
+    &__row-top {
+        background-color:#EEEFEF;
+        
+    }
+    
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 105px;
+    }
+
+    &__menu-icon {
+        display: none;
+        border: none; 
+        svg{
+            width: 30px;
+            height: 30px;
+            
+        }
+        
+    }
+
+    &__menu-close {
+        position: fixed;
+        left: calc(45% + 10 * (100vw / 992));
+        z-index: 10;
+        top: 15px;
+        transform: translateX(-2000%);
+        opacity: 0;
+        transition:all .5s ease ;
+        border: none;
+        width: 25px;
+        padding: 0;
+        border-radius: 100%;
+    }
+
+    &__menu {
+        display: flex;
+    }
+
+    &__item {
+        margin-right: 70px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
+    &__link {
+        font-family: 'Good Times';
+        color: $colorBlue;
+        text-transform: uppercase;
+
+    }
+
+    &__wrapper-btn {
+        display: flex;
+        align-items: center;
+    }
+
+    &__card {
+        margin-right: 50px;
+    }
+
+    &__card-btn {
+        font-family: 'Good Times';
+        color: $colorBlue;
+        border: none;
+    }
+
+    &__btn {
+        border: none;
+        text-transform: uppercase;
+        background-color: $colorBlue;
+        color: #fff;
+        font-weight: bold;
+        padding: 11px 35px;
+        border-radius: 20px;
+    }
+
+    &__body {
+        background: url('../img/headerBg-01.jpg') no-repeat center / cover;
+        min-height: 570px;
+        padding-top: 150px;
+    }
+
+    &__title {
+        max-width: 470px;
+        margin-left: 52px;
+        line-height: 52px;
+    }
+
+    &__arrow {
+        margin-left: 52px;
+        margin-top: 45px;
+        width: 34px;
+        height: 19px;
+        display: block;
+    }
+}
+
+.form {  
+   padding-top: 25px;
+   padding-bottom: 35px;
+   padding-right: 15px;
+   padding-left: 15px;
+   max-width: 1270px;
+   margin: 0 auto;
+   color: $colorWhite;
+   background: rgba(0,90,195, .9);
+   margin-top: -116px;
+
+   &__title {
+       text-align: center;
+       margin-bottom: 39px;
+   }
+
+   &__main {       
+       max-width: 890px;
+       margin: 0 auto;
+   }
+
+   &__row {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-bottom: 39px;
+
+       &:last-child{
+           margin-bottom: 0;
+       }
+   }
+
+   &__input {
+       width: 270px;
+       min-height: 31px;
+       padding-left: 9px;
+
+       &::-webkit-input-placeholder {
+           color: black;
+           font-family: 'Roboto';
+           
+       }
+   }
+
+   &__input--year {
+       width: 115px;
+   }
+   &__to {
+       margin: 0 10.5px;
+       min-height: 31px;
+   }
+
+
+   &__input--fullWidth  {
+       width: 100%;
+   }
+
+   &__reset {
+       border: none;
+       background: none;
+       color: $colorWhite;
+       font-size: 13px;
+       text-transform: uppercase;
+       font-weight: 700;
+       position: relative;
+
+       &::after{
+           content: '';
+           width: 80%;
+           height: 2px;
+           background: #ffff;
+           position: absolute;
+           bottom: -5px;
+           left: 5px;
+       }
+       
+   }
+
+   &__search {
+       background: $colorGreen;
+       border: none;
+       color: $colorWhite;
+       text-transform: uppercase;
+       font-weight: 700;
+       min-width: 173px;
+       padding: 13px 0;
+       border-radius: 15px;
+
+   }
+}
+
+
+@media screen and (max-width: 992px) {
+    .header{
+        &__logo {
+            order:1;
+        }
+
+        &__menu {
+            flex-direction: column;
+            transition: all .6s ease;
+            transform: translateX(-100%);
+            position: fixed;
+            background-color: rgba(255,255,255, .9);
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 55%;
+            padding-top: 50px;
+            &.active{
+                transform: translateX(0);
+                display: block;                
+            }
+        }
+        &__item {
+            width: 100%;
+            &:first-child{
+                border-top: 1px solid #000;
+            }
+        }
+        &__link {
+            display: block;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 20px;
+            font-weight: 700;           
+            border-bottom: 1px solid #000;
+            transition: all .4s ease;
+
+            &:hover{
+                background-color: rgba(0,90,195, 1);
+                color: #fff;
+            }
+
+        }
+        
+
+        &__navigation {
+            order: 3;
+        }
+        &__wrapper-btn {
+            order: 2;
+            justify-content: flex-end;
+            flex-grow: 2;
+            margin-right: 30px;
+            
+            
+        }
+        &__menu-icon {
+            display: block;
+            margin-left: auto;
+            border: none; 
+            svg{
+                width: 30px;
+                height: 30px;
+                
+            }
+            
+        }
+        &__navigation.active {
+            .header__menu-close{
+                transform: translateX(0);
+                opacity: 1;
+
+            }
+            
+        }
+    }
+    .form {
+        &__row{
+            flex-direction: column;
+        }
+
+        &__year-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__input{
+            width: 80%;
+            margin-bottom: 15px;
+        }
+        &__input--year {
+
+            width: 30%;
+        }
+
+        &__row--btn {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header{   
+    &__title {
+        margin: 0;
+        max-width: 100%;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    &__arrow {
+        text-align: center;
+        margin: 32px auto;
+    }
+    &__wrapper-btn {
+        display: none;
+    }
+
+    }
+
+    .form {        
+        &__title {
+            font-size: 18px;
+        }
+
+        &__input {
+            width: 100%;
+        }
+
+        &__to {
+            min-height: 31px;
+        }
+
+        &__search{
+            min-width: 140px;
+        }
+
+        &__row--btn{
+            justify-content: space-between;
+            
+        }
+    }
+}
+
